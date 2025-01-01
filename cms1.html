@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CMS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CMS Example</h1>
+    <form id="cms-form">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="text" id="mobile" placeholder="Mobile No" required>
+        <input type="text" id="city" placeholder="City" required>
+        <input type="number" id="debt" placeholder="Debt" required>
+        <button type="submit">Create</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mobile No</th>
+                <th>City</th>
+                <th>Debt</th>
+                <th>Create Date</th>
+                <th>Edit Date</th>
+                <th>Delete Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="records-table">
+            <!-- Rows will be added dynamically -->
+        </tbody>
+    
+    </table>
+    <script >const form = document.getElementById("cms-form");
+const recordsTable = document.getElementById("records-table");
+
+let records = [];
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    const name = document.getElementById("name").value;
+    const mobile = document.getElementById("mobile").value;
+    const city = document.getElementById("city").value;
+    const debt = parseFloat(document.getElementById("debt").value);
+
+    const createDate = new Date().toLocaleString();
+    const newRecord = {
+        id: Date.now(),
+        name,
+        mobile,
+        city,
+        debt,
+        createDate,
+        editDate: "",
+        deleteDate: "",
+    };
+
+    records.push(newRecord);
+    renderTable();
+    form.reset();
+});
+
+function renderTable() {
+    recordsTable.innerHTML = "";
+
+    records.forEach((record) => {
+        const row = document.createElement("tr");
+        
+        row.innerHTML = `
+            <td>${record.name}</td>
+            <td>${record.mobile}</td>
+            <td>${record.city}</td>
+            <td>${record.debt || ""}</td>
+            <td>${record.createDate}</td>
+            <td>${record.editDate}</td>
+            <td>${record.deleteDate}</td>
+            <td>
+                <button onclick="editRecord(${record.id})">Edit</button>
+                <button onclick="deleteDebt(${record.id})">Delete Debt</button>
+            </td>
+        `;
+        
+        recordsTable.appendChild(row);
+    });
+}
+
+function editRecord(id) {
+    const record = records.find((r) => r.id === id);
+    if (!record) return;
+
+    document.getElementById("name").value = record.name;
+    document.getElementById("mobile").value = record.mobile;
+    document.getElementById("city").value = record.city;
+    document.getElementById("debt").value = record.debt;
+
+    record.editDate = new Date().toLocaleString();
+    records = records.filter((r) => r.id !== id);
+    renderTable();
+}
+
+function deleteDebt(id) {
+    const record = records.find((r) => r.id === id);
+    if (!record) return;
+
+    record.debt = null;
+    record.deleteDate = new Date().toLocaleString();
+    renderTable();
+}
+
+</script>
+</body>
+</html>

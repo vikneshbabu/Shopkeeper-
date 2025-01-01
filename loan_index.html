@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: #333;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+  color: #555;
+}
+
+form input {
+  padding: 10px;
+  margin: 5px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f7f7f7;
+}
+
+button.remove-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button.remove-btn:hover {
+  background-color: #c82333;
+}
+
+</style>
+<body>
+  <div class="container">
+    <h1>Loan Management System</h1>
+
+    <!-- Loan Form to Add New Loan -->
+    <section id="loanFormSection">
+      <h2>Add New Loan</h2>
+      <form id="loanForm">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" placeholder="Enter Customer Name" required>
+        
+        <label for="loanAmount">Loan Amount ($):</label>
+        <input type="number" id="loanAmount" placeholder="Enter Loan Amount" required>
+        
+        <label for="interestRate">Interest Rate (%):</label>
+        <input type="number" id="interestRate" placeholder="Enter Interest Rate" required>
+
+        <label for="loanDuration">Duration (Months):</label>
+        <input type="number" id="loanDuration" placeholder="Enter Loan Duration" required>
+
+        <button type="submit">Create Loan</button>
+      </form>
+    </section>
+
+    <!-- Loan List Table -->
+    <section id="loanListSection">
+      <h2>All Loans</h2>
+      <table id="loanTable">
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+            <th>Loan Amount</th>
+            <th>Interest Rate</th>
+            <th>Duration</th>
+            <th>Outstanding Balance</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loan entries will appear here -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Repayment Form -->
+    <section id="repaymentFormSection">
+      <h2>Add Repayment</h2>
+      <form id="repaymentForm">
+        <label for="loanId">Loan ID:</label>
+        <input type="number" id="loanId" placeholder="Enter Loan ID" required>
+        
+        <label for="repaymentAmount">Repayment Amount ($):</label>
+        <input type="number" id="repaymentAmount" placeholder="Enter Repayment Amount" required>
+
+        <button type="submit">Record Repayment</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+
+// scripts.js
+
+$(document).ready(function () {
+  // Array to store loan data
+  let loans = [];
+
+  // Function to update the loan table
+  function updateLoanTable() {
+    const loanTableBody = $('#loanTable tbody');
+    loanTableBody.empty(); // Clear the table
+
+    loans.forEach((loan, index) => {
+      const loanRow = `
+        <tr>
+          <td>${loan.customerName}</td>
+          <td>$${loan.loanAmount}</td>
+          <td>${loan.interestRate}%</td>
+          <td>${loan.loanDuration} months</td>
+          <td>$${loan.outstandingBalance.toFixed(2)}</td>
+          <td>${loan.status}</td>
+          <td>
+            ${loan.status === "Active" ? `<button class="remove-btn" data-index="${index}">Mark as Paid</button>` : ''}
+          </td>
+        </tr>
+      `;
+      loanTableBody.append(loanRow);
+    });
+  }
+
+  // Function to add a new loan
+  $('#loanForm').submit(function (event) {
+    event.preventDefault();
+
+    const customerName = $('#customerName').val();
+    const loanAmount = parseFloat($('#loanAmount').val());
+    const interestRate = parseFloat($('#interestRate').val());
+    const loanDuration = parseInt($('#loanDuration').val());
+
+    const outstandingBalance = loanAmount + (loanAmount * (interestRate / 100));
+
+    const newLoan = {
+      customerName,
+      loanAmount,
+      interestRate,
+      loanDuration,
+      outstandingBalance,
+      status: "Active",
+    };
+
+    loans.push(newLoan);
+
+    // Clear the form fields
+    $('#loanForm')[0].reset();
+
+    // Update the loan table
+    updateLoanTable();
+  });
+
+  // Function to handle repayment
+  $('#repaymentForm').submit(function (event) {
+    event.preventDefault();
+
+    const loanId = parseInt($('#loanId').val());
+    const repaymentAmount = parseFloat($('#repaymentAmount').val());
+
+    const loan = loans[loanId];
+
+    if (loan) {
+      loan.outstandingBalance -= repaymentAmount;
+
+      if (loan.outstandingBalance <= 0) {
+        loan.status = "Paid";
+        loan.outstandingBalance = 0;
+      }
+
+      // Clear the repayment form
+      $('#repaymentForm')[0].reset();
+
+      // Update the loan table
+      updateLoanTable();
+    } else {
+      alert("Invalid Loan ID.");
+    }
+  });
+
+  // Handle "Mark as Paid" button click
+  $(document).on('click', '.remove-btn', function () {
+    const index = $(this).data('index');
+    loans[index].status = "Paid";
+    loans[index].outstandingBalance = 0;
+
+    // Update the loan table
+    updateLoanTable();
+  });
+});
+</script>
+</body>
+</html>

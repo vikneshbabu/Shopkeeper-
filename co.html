@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .quantity-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .quantity-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            margin: 0 5px;
+            font-size: 18px;
+        }
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Checkout</h2>
+
+    <table id="checkout-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Items will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <h3>Total: $<span id="total-price">0.00</span></h3>
+
+    <button id="checkout-button">Proceed to Checkout</button>
+
+    <script>
+        // Sample cart data
+        const cartItems = [
+            { id: 1, name: "Item 1", price: 20.00, quantity: 1 },
+            { id: 2, name: "Item 2", price: 15.00, quantity: 1 },
+            { id: 3, name: "Item 3", price: 25.00, quantity: 1 }
+        ];
+
+        const checkoutTable = document.getElementById('checkout-table').getElementsByTagName('tbody')[0];
+        const totalPriceElement = document.getElementById('total-price');
+
+        // Render Cart Items
+        function renderCart() {
+            checkoutTable.innerHTML = '';  // Clear existing rows
+
+            let total = 0;
+
+            cartItems.forEach(item => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>
+                        <div class="quantity-controls">
+                            <button class="quantity-button" onclick="changeQuantity(${item.id}, -1)">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" readonly>
+                            <button class="quantity-button" onclick="changeQuantity(${item.id}, 1)">+</button>
+                        </div>
+                    </td>
+                    <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                `;
+
+                checkoutTable.appendChild(row);
+                total += item.price * item.quantity;
+            });
+
+            totalPriceElement.textContent = total.toFixed(2);
+        }
+
+        // Change Item Quantity
+        function changeQuantity(itemId, delta) {
+            const item = cartItems.find(item => item.id === itemId);
+            if (!item) return;
+
+            item.quantity = Math.max(1, item.quantity + delta);  // Ensure quantity doesn't go below 1
+            renderCart();
+        }
+
+        // Initial render
+        renderCart();
+
+        // Checkout Button
+        document.getElementById('checkout-button').addEventListener('click', () => {
+            alert('Proceeding to Checkout');
+            // You can add your checkout logic here (e.g., sending data to a server)
+        });
+
+    </script>
+    <script>document.getElementById('checkout-button').addEventListener('click', function() {
+    // Redirect to the checkout page
+    window.location.href = '/ billhistory.html';
+});
+</script>
+</body>
+</html>

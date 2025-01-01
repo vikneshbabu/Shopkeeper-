@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        form {
+            margin: 20px 0;
+        }
+        input, select {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inventory Management</h1>
+
+<form id="inventory-form">
+        <input type="text" id="item-name" placeholder="Item Name" required>
+        <input type="number" id="quantity" placeholder="Quantity" required>
+        <input type="number" id="price" placeholder="Price" required>
+        
+        <select id="category" required>
+            <option value="">Select Category</option>
+            <!-- Categories will be populated here -->
+        </select>
+
+        <button type="submit">Add Item</button>
+    </form>
+
+    <h2>Inventory List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="inventory-table">
+            <!-- Items will be listed here -->
+        </tbody>
+    </table>
+
+    <script>
+        // DOM elements
+        const form = document.getElementById("inventory-form");
+        const inventoryTable = document.getElementById("inventory-table");
+
+        let inventory = [];
+
+        // Fetch JSON data from the local JSON file for categories
+        fetch('./assets/json/category.json')
+          .then(response => response.json()) // Parse the JSON data
+          .then(data => {
+            const dropdown = document.getElementById('category');
+
+            // Loop through the data and create <option> elements
+            data.forEach(item => {
+              const option = document.createElement('option');
+              option.value = item.id;
+              option.textContent = item.name;
+              dropdown.appendChild(option); // Add the option to the dropdown
+            });
+          })
+          .catch(error => console.error('Error loading JSON:', error));
+
+        // Add Item Function
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const itemName = document.getElementById("item-name").value;
+            const quantity = parseInt(document.getElementById("quantity").value);
+            const price = parseFloat(document.getElementById("price").value);
+            const category = document.getElementById("category").value;
+
+            if (!category) {
+              alert("Please select a category.");
+              return;
+            }
+
+            const newItem = {
+                id: Date.now(),
+                name: itemName,
+                quantity,
+                price,
+                category
+            };
+
+            inventory.push(newItem);
+            renderInventory();
+            form.reset(); // Reset form fields
+        });
+
+        // Render Inventory Table
+        function renderInventory() {
+            inventoryTable.innerHTML = ""; // Clear existing rows
+
+            inventory.forEach((item) => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.price}</td>
+                    <td>${item.category}</td>
+                    <td>
+                        <button onclick="editItem(${item.id})">Edit</button>
+                        <button onclick="deleteItem(${item.id})">Delete</button>
+                    </td>
+                `;
+
+                inventoryTable.appendChild(row);
+            });
+        }
+
+        // Edit Item Function
+        function editItem(id) {
+            const item = inventory.find((item) => item.id === id);
+            if (!item) return;
+
+            // Populate form with item data
+            document.getElementById("item-name").value = item.name;
+            document.getElementById("quantity").value = item.quantity;
+            document.getElementById("price").value = item.price;
+            document.getElementById("category").value = item.category;
+
+            // Remove the item from inventory (will be added again later)
+            inventory = inventory.filter((item) => item.id !== id);
+            renderInventory();
+        }
+
+        // Delete Item Function
+        function deleteItem(id) {
+            inventory = inventory.filter((item) => item.id !== id);
+            renderInventory();
+        }
+    </script>
+
+</body>
+</html>>
+
+</body>
+</html>

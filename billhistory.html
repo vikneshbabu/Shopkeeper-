@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice History</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+#bill-history {
+    list-style-type: none;
+    padding: 0;
+}
+
+#bill-history li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#bill-history li:hover {
+    background-color: #f0f0f0;
+}
+
+.invoice-details {
+    width: 75%;
+    padding: 20px;
+}
+
+.invoice-details h2 {
+    text-align: center;
+}
+
+#invoice-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar: Bill History -->
+        <div class="sidebar">
+            <h2>Bill History</h2>
+            <ul id="bill-history">
+                <!-- Bill items will be dynamically inserted here -->
+            </ul>
+        </div>
+
+        <!-- Right Content: Invoice Details -->
+        <div class="invoice-details">
+            <h2>Invoice Details</h2>
+            <div id="invoice-info">
+                <!-- Selected invoice details will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script >// Sample bill history data
+const billHistory = [
+    { id: 1, date: '2024-12-01', total: 150.00 },
+    { id: 2, date: '2024-12-15', total: 200.00 },
+    { id: 3, date: '2024-12-20', total: 120.00 },
+    // Add more bills as needed
+];
+
+// Function to render bill history
+function renderBillHistory() {
+    const billHistoryList = document.getElementById('bill-history');
+    billHistoryList.innerHTML = ''; // Clear existing list
+
+    billHistory.forEach(bill => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Bill #${bill.id} - Date: ${bill.date} - Total: $${bill.total.toFixed(2)}`;
+        listItem.onclick = () => showInvoiceDetails(bill.id);
+        billHistoryList.appendChild(listItem);
+    });
+}
+
+// Function to display invoice details
+function showInvoiceDetails(billId) {
+    const bill = billHistory.find(b => b.id === billId);
+    if (!bill) return;
+
+    const invoiceInfo = document.getElementById('invoice-info');
+    invoiceInfo.innerHTML = `
+        <h3>Invoice #${bill.id}</h3>
+        <p><strong>Date:</strong> ${bill.date}</p>
+        <p><strong>Total Amount:</strong> $${bill.total.toFixed(2)}</p>
+        <h4>Items:</h4>
+        <ul>
+            <!-- Items will be dynamically inserted here -->
+        </ul>
+    `;
+
+    // Sample items for the invoice
+    const items = [
+        { name: 'Product 1', quantity: 2, price: 50.00 },
+        { name: 'Product 2', quantity: 1, price: 100.00 },
+        // Add more items as needed
+    ];
+
+    const itemsList = invoiceInfo.querySelector('ul');
+    items.forEach(item => {
+        const itemElement = document.createElement('li');
+        itemElement.textContent = `${item.name} - Quantity: ${item.quantity} - Price: $${item.price.toFixed(2)}`;
+        itemsList.appendChild(itemElement);
+    });
+}
+
+// Initialize the bill history
+renderBillHistory();
+</script>
+</body>
+</html>

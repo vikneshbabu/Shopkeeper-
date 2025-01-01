@@ -1,0 +1,631 @@
+{
+  "biscuits": [
+    {
+      "name": "Britannia Bourbon",
+      "price": 30
+    },
+    {
+      "name": "Britannia Good Day",
+      "price": 25
+    },
+    {
+      "name": "Britannia Little Hearts",
+      "price": 15
+    },
+    {
+      "name": "Britannia Treat",
+      "price": 10
+    },
+    {
+      "name": "Britannia Marie Gold",
+      "price": 20
+    },
+    {
+      "name": "Britannia Milk Bikis",
+      "price": 25
+    },
+    {
+      "name": "Britannia 50-50",
+      "price": 30
+    },
+    {
+      "name": "Britannia Jim Jam",
+      "price": 35
+    },
+    {
+      "name": "Britannia Nice Time",
+      "price": 20
+    },
+    {
+      "name": "Britannia Munch",
+      "price": 10
+    },
+    {
+      "name": "Britannia Toastea",
+      "price": 40
+    },
+    {
+      "name": "Britannia Fruit & Nut",
+      "price": 50
+    },
+    {
+      "name": "Britannia Rusk",
+      "price": 60
+    },
+    {
+      "name": "Britannia Good Day Chocochip",
+      "price": 30
+    },
+    {
+      "name": "Britannia Good Day Cashew",
+      "price": 30
+    },
+    {
+      "name": "Britannia Biscuit Choco",
+      "price": 25
+    },
+    {
+      "name": "Britannia Winker",
+      "price": 20
+    },
+    {
+      "name": "Britannia NutriChoice",
+      "price": 40
+    },
+    {
+      "name": "Britannia Veggie Biscuits",
+      "price": 35
+    },
+    {
+      "name": "Britannia Oats Biscuits",
+      "price": 45
+    }
+  ]
+}
+//////////////////////
+{
+  "products": [
+    {
+      "name": "Bru Coffee",
+      "price": 100
+    },
+    {
+      "name": "Lipton Tea",
+      "price": 50
+    },
+    {
+      "name": "Surf Excel Matic",
+      "price": 300
+    },
+    {
+      "name": "Dove Soap",
+      "price": 45
+    },
+    {
+      "name": "Lux Soap",
+      "price": 35
+    },
+    {
+      "name": "Axe Deodorant",
+      "price": 199
+    },
+    {
+      "name": "Pepsodent Toothpaste",
+      "price": 30
+    },
+    {
+      "name": "Rin Bar Soap",
+      "price": 20
+    },
+    {
+      "name": "Vim Dishwash",
+      "price": 45
+    },
+    {
+      "name": "Kissan Tomato Ketchup",
+      "price": 80
+    },
+    {
+      "name": "Bovonto Drink",
+      "price": 30
+    },
+    {
+      "name": "Pond's Cream",
+      "price": 60
+    },
+    {
+      "name": "Fair & Lovely Cream",
+      "price": 150
+    },
+    {
+      "name": "Knorr Soup",
+      "price": 40
+    },
+    {
+      "name": "Taj Mahal Tea",
+      "price": 70
+    },
+    {
+      "name": "Sunsilk Shampoo",
+      "price": 55
+    },
+    {
+      "name": "Sapphire Antiseptic Liquid",
+      "price": 60
+    },
+    {
+      "name": "Lipton Green Tea",
+      "price": 75
+    }
+  ]
+}
+///////////////////////////
+{
+  "teas": [
+    {
+      "name": "Lipton Yellow Label Tea",
+      "price": 100
+    },
+    {
+      "name": "Lipton Green Tea",
+      "price": 150
+    },
+    {
+      "name": "Lipton Ice Tea",
+      "price": 50
+    },
+    {
+      "name": "Taj Mahal Tea",
+      "price": 80
+    },
+    {
+      "name": "Brooke Bond Red Label",
+      "price": 60
+    },
+    {
+      "name": "Brooke Bond Taaza",
+      "price": 55
+    },
+    {
+      "name": "Brook Bond 3 Roses",
+      "price": 70
+    },
+    {
+      "name": "Lipton Herbal Tea",
+      "price": 120
+    },
+    {
+      "name": "Tata Tea Gold",
+      "price": 110
+    },
+    {
+      "name": "Tata Tea Premium",
+      "price": 90
+    }
+  ]
+}
+///////////////
+{
+  "bath_soap": [
+    {
+      "name": "Dove Soap",
+      "price": 45
+    },
+    {
+      "name": "Lux Soap",
+      "price": 35
+    },
+    {
+      "name": "Lifebuoy Soap",
+      "price": 30
+    },
+    {
+      "name": "Pears Soap",
+      "price": 40
+    },
+    {
+      "name": "Fiama Di Wills Soap",
+      "price": 55
+    },
+    {
+      "name": "Dettol Soap",
+      "price": 25
+    },
+    {
+      "name": "Cinthol Soap",
+      "price": 35
+    },
+    {
+      "name": "Mysore Sandal Soap",
+      "price": 50
+    },
+    {
+      "name": "Santoor Soap",
+      "price": 30
+    },
+    {
+      "name": "Nirma Soap",
+      "price": 15
+    },
+    {
+      "name": "Medimix Soap",
+      "price": 35
+    },
+    {
+      "name": "Shower to Shower Soap",
+      "price": 55
+    },
+    {
+      "name": "Godrej No. 1 Soap",
+      "price": 20
+    },
+    {
+      "name": "Khadi Soap",
+      "price": 70
+    },
+    {
+      "name": "Vivel Soap",
+      "price": 40
+    },
+    {
+      "name": "Swan Soap",
+      "price": 18
+    },
+    {
+      "name": "Nivea Soap",
+      "price": 40
+    },
+    {
+      "name": "Patanjali Soap",
+      "price": 25
+    }
+  ]
+}
+//////////////////
+{
+  "detergents": {
+    "soap": [
+      {
+        "name": "Surf Excel Bar",
+        "price": 30
+      },
+      {
+        "name": "Rin Bar",
+        "price": 20
+      },
+      {
+        "name": "Tata Shaktee Detergent Bar",
+        "price": 18
+      },
+      {
+        "name": "Ariel Matic Detergent Bar",
+        "price": 35
+      },
+      {
+        "name": "Nirma Detergent Bar",
+        "price": 15
+      },
+      {
+        "name": "Wheel Detergent Bar",
+        "price": 22
+      },
+      {
+        "name": "Swan Detergent Bar",
+        "price": 18
+      },
+      {
+        "name": "Ghari Detergent Bar",
+        "price": 25
+      }
+    ],
+    "liquid": [
+      {
+        "name": "Surf Excel Liquid Detergent",
+        "price": 350
+      },
+      {
+        "name": "Ariel Matic Liquid Detergent",
+        "price": 320
+      },
+      {
+        "name": "Tide Liquid Detergent",
+        "price": 290
+      },
+      {
+        "name": "Pril Liquid Detergent",
+        "price": 180
+      },
+      {
+        "name": "Blue Moon Liquid Detergent",
+        "price": 250
+      },
+      {
+        "name": "Godrej Ezee Liquid Detergent",
+        "price": 300
+      },
+      {
+        "name": "Rin Liquid Detergent",
+        "price": 210
+      },
+      {
+        "name": "Nirma Liquid Detergent",
+        "price": 250
+      }
+    ]
+  }
+}
+////////////////////
+
+{
+  "aachi_masala": [
+    {
+      "name": "Aachi Chicken Masala",
+      "price": 50
+    },
+    {
+      "name": "Aachi Biryani Masala",
+      "price": 40
+    },
+    {
+      "name": "Aachi Sambar Masala",
+      "price": 30
+    },
+    {
+      "name": "Aachi Rasam Powder",
+      "price": 35
+    },
+    {
+      "name": "Aachi Garam Masala",
+      "price": 45
+    },
+    {
+      "name": "Aachi Chole Masala",
+      "price": 40
+    },
+    {
+      "name": "Aachi Parotta Masala",
+      "price": 25
+    },
+    {
+      "name": "Aachi Vada Curry Masala",
+      "price": 30
+    },
+    {
+      "name": "Aachi Fish Masala",
+      "price": 50
+    },
+    {
+      "name": "Aachi Curry Masala",
+      "price": 40
+    },
+    {
+      "name": "Aachi Tandoori Masala",
+      "price": 50
+    },
+    {
+      "name": "Aachi Mutton Masala",
+      "price": 55
+    },
+    {
+      "name": "Aachi Podi",
+      "price": 30
+    },
+    {
+      "name": "Aachi Chutney Powder",
+      "price": 25
+    },
+    {
+      "name": "Aachi Mustard Powder",
+      "price": 20
+    },
+    {
+      "name": "Aachi Curry Leaves Powder",
+      "price": 35
+    }
+  ]
+}
+/////////////////
+{
+  "sunfeast_products": [
+    {
+      "name": "Sunfeast Biscuit (Glucose)",
+      "price": 20
+    },
+    {
+      "name": "Sunfeast Marie Light",
+      "price": 25
+    },
+    {
+      "name": "Sunfeast Choco Pie",
+      "price": 30
+    },
+    {
+      "name": "Sunfeast Cream Biscuits (Orange)",
+      "price": 25
+    },
+    {
+      "name": "Sunfeast Nice Time",
+      "price": 35
+    },
+    {
+      "name": "Sunfeast All Good",
+      "price": 45
+    },
+    {
+      "name": "Sunfeast Cheds",
+      "price": 40
+    },
+    {
+      "name": "Sunfeast My Cake",
+      "price": 50
+    },
+    {
+      "name": "Sunfeast Milk Biscuits",
+      "price": 20
+    },
+    {
+      "name": "Sunfeast Oats Biscuits",
+      "price": 45
+    },
+    {
+      "name": "Sunfeast Cookies",
+      "price": 40
+    },
+    {
+      "name": "Sunfeast Biscuit (Chocolate)",
+      "price": 30
+    },
+    {
+      "name": "Sunfeast Crunchies",
+      "price": 25
+    },
+    {
+      "name": "Sunfeast Magic Cream Biscuits",
+      "price": 20
+    },
+    {
+      "name": "Sunfeast Saffola Oats",
+      "price": 90
+    }
+  ]
+}
+////////////////////
+{
+  "hair_oils": [
+    {
+      "name": "Parachute Coconut Oil",
+      "price": 130,
+      "quantity": "200 ml"
+    },
+    {
+      "name": "Dabur Amla Hair Oil",
+      "price": 85,
+      "quantity": "100 ml"
+    },
+    {
+      "name": "Bajaj Almond Drops",
+      "price": 105,
+      "quantity": "100 ml"
+    },
+    {
+      "name": "Khadi Natural Herbal Hair Oil",
+      "price": 150,
+      "quantity": "210 ml"
+    },
+    {
+      "name": "Indulekha Bringha Oil",
+      "price": 299,
+      "quantity": "100 ml"
+    },
+    {
+      "name": "Himalaya Herbals Anti-Hair Fall Oil",
+      "price": 135,
+      "quantity": "200 ml"
+    },
+    {
+      "name": "Kesh King Ayurvedic Hair Oil",
+      "price": 150,
+      "quantity": "100 ml"
+    },
+    {
+      "name": "Amway Satinique Revitalizing Oil",
+      "price": 550,
+      "quantity": "100 ml"
+    },
+    {
+      "name": "Biotique Bio Bhringraj Therapeutic Oil",
+      "price": 200,
+      "quantity": "120 ml"
+    },
+    {
+      "name": "Mamaearth Onion Hair Oil",
+      "price": 399,
+      "quantity": "150 ml"
+    },
+    {
+      "name": "Livon Serum Hair Oil",
+      "price": 180,
+      "quantity": "100 ml"
+    },
+    {
+      "name": "Coconut Oil (VLCC)",
+      "price": 250,
+      "quantity": "200 ml"
+    },
+    {
+      "name": "Sri Sri Tattva Hair Oil",
+      "price": 120,
+      "quantity": "100 ml"
+    },
+    {
+      "name": "Soulflower Pure Coconut Oil",
+      "price": 399,
+      "quantity": "200 ml"
+    }
+  ]
+}
+//////////////////////:
+{
+  "malted_milk_drinks": [
+    {
+      "name": "Complan",
+      "flavors": ["Chocolate", "Vanilla", "Kesar Badam"],
+      "price": 175,
+      "quantity": "500 g"
+    },
+    {
+      "name": "Horlicks",
+      "flavors": ["Classic Malt", "Chocolate", "Kesar Badam"],
+      "price": 210,
+      "quantity": "500 g"
+    },
+    {
+      "name": "Boost",
+      "flavors": ["Chocolate"],
+      "price": 185,
+      "quantity": "500 g"
+    },
+    {
+      "name": "Bovonto Malted Milk Drink",
+      "flavors": ["Original"],
+      "price": 40,
+      "quantity": "200 ml"
+    },
+    {
+      "name": "Pediasure",
+      "flavors": ["Vanilla", "Chocolate"],
+      "price": 425,
+      "quantity": "400 g"
+    },
+    {
+      "name": "Maltova",
+      "flavors": ["Original"],
+      "price": 120,
+      "quantity": "500 g"
+    },
+    {
+      "name": "MTR Health Mix",
+      "flavors": ["Original", "Soya", "Oats"],
+      "price": 250,
+      "quantity": "500 g"
+    },
+    {
+      "name": "Saffola Fittify",
+      "flavors": ["Chocolate", "Vanilla"],
+      "price": 299,
+      "quantity": "400 g"
+    },
+    {
+      "name": "Amul Pro",
+      "flavors": ["Chocolate"],
+      "price": 100,
+      "quantity": "200 g"
+    },
+    {
+      "name": "Tata Nutrikorner"
+      "flavors": ["Chocolate", "Vanilla"],
+      "price": 249,
+      "quantity": "400 g"
+    }
+  ]
+}
