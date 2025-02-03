@@ -18,7 +18,20 @@
     "id": 5,
     "name": "detergent"
   },
-  {
+{
+    "id": 6,
+    "name": " masala"
+  },
+    {
+    "id": 7,
+    "name": " masala"
+  } , {
+    "id": 6,
+    "name": " masala"
+  }  ,{
+    "id": 6,
+    "name": " masala"
+  },  {
     "id": 6,
     "name": " masala"
   }
